@@ -16,6 +16,8 @@
 
 int ZbolVersAge(int zbol)
 {
+
+    // Fonction servant à convertir l'age en zbol en age terrestre.
     if (zbol <= 40)
     {
         return zbol * 5;
@@ -32,23 +34,25 @@ int ZbolVersAge(int zbol)
 
 int CalculeZbol(int zbol)
 {
+    // Fonction servant à calculer l'age terrestre à partir de l'age zbol pour les zbols supérieurs à 80.
     return 40 * 5 + 40 * 3 + (zbol - 80);
 }
 
 int SaisieZbol()
 {
+    // Fonction servant à saisir l'age en zbol, avec gestion des erreurs de saisie.
     int age;
 
     Console.Write("Entrez votre age en zbol : ");
     try
     {
-        if (int.TryParse(Console.ReadLine(), out age) && age >= 0) // Sortie de l'age
+        if (int.TryParse(Console.ReadLine(), out age) && age >= 0) // Saisie de l'age
         {
-            return age;
+            return age; // Renvoie de l'age
         }
         else
         {
-            throw new ArgumentOutOfRangeException("L'age doit être un nombre entier positif.");
+            throw new ArgumentOutOfRangeException("L'age doit être un nombre entier positif."); // Erreur si nombre négatif
         }
 
     }
@@ -56,11 +60,11 @@ int SaisieZbol()
     {
         //Si l'utilisateur fai une rreur de saisie  on affiche un message, et on saisie le nombre à 0.
         Console.WriteLine($"Erreur de saisie : {e.Message}. Votre age est donc définit à 0.");
-        return 0;
+        return 0; // Renvoie Automatique de l'age  = 0
     }
 }
 
 // Main Program
-
+Console.WriteLine("Bienvenue dans le convertisseur d'age Zbol !");
 
 Zbol();
