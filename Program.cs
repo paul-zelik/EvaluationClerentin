@@ -7,11 +7,28 @@
 
     Console.WriteLine("Quel est votre age en zbol ?");
     int zbol = SaisieZbol();
-    Console.WriteLine($"L'age en Zbole : {zbol}");
+    int ageTerrestre = ZbolToAge(zbol);
+    Console.WriteLine($"Votre age terrestre convertit depusi votre age Zbol : {ageTerrestre}");
 
 
 }
 
+
+int ZbolToAge(int zbol)
+{
+    if (zbol <= 40)
+    {
+        return zbol * 5;
+    }
+    else if (zbol <= 80)
+    {
+        return 40 * 5 + (zbol - 40) * 3;
+    }
+    else
+    {
+        return 40 * 5 + 40 * 3 + (zbol - 80);
+    }
+}
 
 int SaisieZbol()
 {
